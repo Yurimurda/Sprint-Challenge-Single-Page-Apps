@@ -8,17 +8,15 @@ export default function CharacterList() {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios
-      .get(`https://rickandmortyapi.com/api/character/2/`, {
-        
-      })
-      .then(response => {
-        const characters = response.data.filter(character =>
-          character.name.toLowerCase().includes(query.toLowerCase())
-        );
-        console.log("Rick and Morty characters", response);
-        setData(characters);
-      });
-  }, [query]);
+      .get(`https://rickandmortyapi.com/api/character/`)
+        .then(response =>{
+          console.log(response);
+          setData(response.data.results);
+        })
+        .catch(error =>{
+          console.log(error);
+        });
+      }, []);
   const handleInputChange = event => {
     setQuery(event.target.value);
   };
@@ -43,12 +41,12 @@ export default function CharacterList() {
               <h2>
                 {data.name}
               </h2>
-              <h3 className="capital">name: {data.name}</h3>
-              <h3 className="capital">status: {data.status}</h3>
-              <h3 className="capital">species: {data.species}</h3>
-              <h3 className="capital">type: {data.type}</h3>
-              <h3 className="capital">gender: {data.gender}</h3>
-              <h3 className="insert">origin:{data.origin}</h3>
+              <h3 className="insert">name: {data.name}</h3>
+              <h3 className="insert">status: {data.status}</h3>
+              <h3 className="insert">species: {data.species}</h3>
+              <h3 className="insert">type: {data.type}</h3>
+              <h3 className="insert">gender: {data.gender}</h3>
+              
             </div>
           );
         })}
@@ -101,4 +99,4 @@ export default function CharacterList() {
 //       </div>
 //     </div>
 //   );
-// }
+// 
