@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import CharacterCard from "./CharacterCard";
+import LocationCard from "./LocationCard";
 
 const SearchForm=(props)=> {
   const [query, setQuery] = useState("");
@@ -6,6 +8,10 @@ const SearchForm=(props)=> {
   const characters = props.data.filter(character =>
     character.name.toLowerCase().includes(query.toLowerCase())
   );
+
+  const locations = props.data.filter(location =>
+    location.name.toLowerCase().includes(query.toLowerCase())
+    );
 
   const handleInputChange = event => {
     setQuery(event.target.value);
@@ -28,15 +34,31 @@ const SearchForm=(props)=> {
       <div className="Character">
         {characters.map(data => {
           return (
-            <div className="character-list " key={data.id}>
-              <h2>
-                {data.name}
-              </h2>
-              <h3 className="status">status: {data.status}</h3>
-              <h3 className="species">species: {data.species}</h3>
-              <h3 className="gender">gender: {data.gender}</h3>
-              <img src={data.image} alt={data.name}/>
-            </div>
+            <CharacterCard
+            key={data.id}
+            
+            name={data.name}
+            status={data.status}
+            species={data.species}
+            gender={data.gender}
+            // src={data.image} 
+            />
+            
+          );
+        })}
+      </div>
+      <div className="location">
+        {locations.map(data => {
+          return (
+            <LocationCard
+            key={data.id}
+            
+            name={data.name}
+            status={data.type}
+            species={data.dimension}
+            // src={data.image} 
+            />
+            
           );
         })}
       </div>

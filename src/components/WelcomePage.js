@@ -1,5 +1,4 @@
 import React from "react";
-import CharactersList from "./CharacterList";
 export default function WelcomePage() {
   return (
     <section className="welcome-page">
