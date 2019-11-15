@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: Loads faster and is solely reliant off of the source files of the website as opposed to one that needs data from another. Client side loads quicker and has a smoother feel.
 
 ## Project Set Up
 

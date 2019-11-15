@@ -37,3 +37,9 @@ main {
 header h1 {
   text-align: center;
 }
+
+
+.lists{
+  display:flex;
+  justify-content: space-between;
+}
